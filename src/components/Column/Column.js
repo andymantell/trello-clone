@@ -3,6 +3,10 @@ import React, { Component } from 'react';
 import Card from '../Card/Card'
 
 class Column extends Component {
+  addCard() {
+    this.props.addCard(this.props.id, { title: Date.now(), id: Date.now() })
+  }
+
   render() {
     const style = {
       minWidth: '20%',
@@ -17,7 +21,13 @@ class Column extends Component {
 
     return (
       <div className="column panel panel-default" style={style}>
-        <h2 className="panel-heading">{title}</h2>
+        <div className="panel-heading">
+          <h2>{title}</h2>
+
+          <button className="btn btn-default" onClick={this.addCard.bind(this)}>
+            <span className="glyphicon glyphicon-plus" aria-hidden="true"></span> Add card
+          </button>
+        </div>
 
         <div className="panel-body">
           {cards}

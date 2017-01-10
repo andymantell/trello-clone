@@ -51,13 +51,24 @@ class Board extends Component {
       ]
     }
   }
+
+  addCard(columnId, card) {
+    var columns = this.state.columns.slice()
+
+    var thisColumn = columns.find(column => column.id === columnId)
+    thisColumn.cards.push(card)
+
+    this.setState({columns: columns})
+  }
+
+
   render() {
     const style = {
       display: 'flex'
     }
 
     var columns = this.state.columns.map((column) =>
-      <Column key={column.id} title={column.title} id={column.id} cards={column.cards} />
+      <Column key={column.id} title={column.title} id={column.id} cards={column.cards} addCard={this.addCard.bind(this)} />
     )
 
     return (
