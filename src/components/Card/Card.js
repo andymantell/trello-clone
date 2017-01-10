@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 
 class Card extends Component {
   render() {
+    const {title} = this.props
+
     return (
       <div className="card well">
-        I am a card
+        {title}
       </div>
     );
   }

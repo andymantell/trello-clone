@@ -9,12 +9,19 @@ class Column extends Component {
       marginLeft: '20px'
     }
 
+    const { title } = this.props
+
+    var cards = this.props.cards.map((card) =>
+      <Card key={card.id} title={card.title} id={card.id} />
+    )
+
     return (
-      <div className="column" style={style}>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+      <div className="column panel panel-default" style={style}>
+        <h2 className="panel-heading">{title}</h2>
+
+        <div className="panel-body">
+          {cards}
+        </div>
       </div>
     );
   }
