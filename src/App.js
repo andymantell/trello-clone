@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Navbar from './components/Navbar/Navbar'
+import Board from './components/Board/Board'
 
 class App extends Component {
   render() {
@@ -8,6 +9,8 @@ class App extends Component {
     return (
       <div>
         <Navbar />
+
+        <Board />
       </div>
     );
   }
